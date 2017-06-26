@@ -1,6 +1,6 @@
 #include <a_samp>
 #include <zcmd>
-
+#include <streamer>
 
 
 /* YSI INCLUDES */
@@ -12,7 +12,28 @@
 #include <YSI\y_iterate>
 #include <YSI\y_ini>
 /****************/
+#define COL_WHITE          "{FFFFFF}"
+#define COL_GREY           "{C3C3C3}"
+#define COL_GREEN          "{37DB45}"
+#define COL_RED            "{F81414}"
+#define COL_YELLOW         "{F3FF02}"
+#define COL_ORANGE         "{F9B857}"
+#define COL_BLUE           "{0049FF}"
+#define COL_PINK           "{FF00EA}"
+#define COL_LIGHTBLUE      "{00C0FF}"
+#define COL_LGREEN         "{C9FFAB}"
+#define RED 0xFF0000FF
+#define COLOR_BLUE 0x33CCFF00
+#define COLOR_WHITE 0xFFFFFF00
+#define COLOR_PINK 0xFFC0CB00
+#define COLOR_BROWN 0xA9A9A900
 
+/* MACROS */
+#define function%0(%1) forward%0(%1);public%0(%1)
+
+
+/* GAMEMODE FILES */
+#include "h1z1/loot.pwn"
 
 
 public OnGameModeInit()
