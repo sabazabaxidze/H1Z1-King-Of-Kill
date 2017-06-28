@@ -1709,7 +1709,7 @@ CreateAk47(Float:akx, Float:aky, Float:akz, ak47[])
 {
 	new str[127];
 	Loot[lootCount][LootObj] = CreateDynamicObject(AK_OBJECT,akx,aky,akz-0.9,0.0,0.0,0.0,-1,-1,-1,1000.0);
-	format(str,sizeof(str),""COL_GREEN"%s\n"COL_GREY"Asagebad Daachiret ALT-s", ak47);
+	format(str,sizeof(str),""COL_GREEN"%s\n"COL_GREY"Click Alt For Loot", ak47);
     Loot[lootCount][LootText] = CreateDynamic3DTextLabel(str,-1,akx,aky,akz-0.7,8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,-1,-1,-1, 8.0);
 }
 
@@ -1717,7 +1717,7 @@ CreateM4(Float:m4x, Float:m4y, Float:m4z, m4[])
 {
 	new str[127];
 	Loot[lootCount][LootObj] = CreateDynamicObject(M4_OBJECT,m4x,m4y,m4z-0.9,0.0,0.0,0.0,-1,-1,-1,1000.0);
-	format(str,sizeof(str),""COL_GREEN"%s\n"COL_GREY"Asagebad Daachiret ALT-s", m4);
+	format(str,sizeof(str),""COL_GREEN"%s\n"COL_GREY"Click Alt For Loot", m4);
     Loot[lootCount][LootText] = CreateDynamic3DTextLabel(str,-1,m4x,m4y,m4z-0.7,8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,-1,-1,-1, 8.0);
 }
 
@@ -1725,7 +1725,7 @@ CreateSniper(Float:snipex, Float:snipey, Float:snipez, sniper[])
 {
 	new str[127];
 	Loot[lootCount][LootObj] = CreateDynamicObject(SNIPER_OBJECT,snipex,snipey,snipez-0.9,0.0,0.0,0.0,-1,-1,-1,1000.0);
-	format(str,sizeof(str),""COL_GREEN"%s\n"COL_GREY"Asagebad Daachiret ALT-s", sniper);
+	format(str,sizeof(str),""COL_GREEN"%s\n"COL_GREY"Click Alt For Loot", sniper);
     Loot[lootCount][LootText] = CreateDynamic3DTextLabel(str,-1,snipex,snipey,snipez-0.7,8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,-1,-1,-1, 8.0);
 }
 
@@ -1733,7 +1733,7 @@ CreateShotgun(Float:shotgunx,Float:shotguny,Float:shotgunz, shotgun[])
 {
 	new str[127];
 	Loot[lootCount][LootObj] = CreateDynamicObject(SHOTGUN_OBJECT,shotgunx,shotguny,shotgunz-0.9,0.0,0.0,0.0,-1,-1,-1,1000.0);
-	format(str,sizeof(str),""COL_GREEN"%s\n"COL_GREY"Asagebad Daachiret ALT-s", shotgun);
+	format(str,sizeof(str),""COL_GREEN"%s\n"COL_GREY"Click Alt For Loot", shotgun);
     Loot[lootCount][LootText] = CreateDynamic3DTextLabel(str,-1,shotgunx,shotguny,shotgunz-0.7,8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,-1,-1,-1, 8.0);	
 }
 /* MEDIC CREATE FUNCTIONS */
@@ -1741,7 +1741,7 @@ CreateMedKit(Float:medx, Float:medy, Float:medz, medkit[])
 {
 	new str[127];
 	Loot[lootCount][LootObj] = CreateDynamicObject(MEDKIT_OBJECT,medx,medy,medz-0.9,0.0,0.0,0.0,-1,-1,-1,1000.0);
-	format(str,sizeof(str),""COL_GREEN"%s\n"COL_GREY"Asagebad Daachiret ALT-s", medkit);
+	format(str,sizeof(str),""COL_GREEN"%s\n"COL_GREY"Click Alt For Loot", medkit);
     Loot[lootCount][LootText] = CreateDynamic3DTextLabel(str,-1,medx,medy,medz-0.7,8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,-1,-1,-1, 8.0);	
 }
 
@@ -1749,6 +1749,6 @@ CreateBandage(Float:bandx, Float:bandy, Float:bandz, bandage[])
 {
 	new str[127];
 	Loot[lootCount][LootObj] = CreateDynamicObject(BANDAGE_OBJECT,bandx,bandy,bandz-0.9,0.0,0.0,0.0,-1,-1,-1,1000.0);
-	format(str,sizeof(str),""COL_GREEN"%s\n"COL_GREY"Asagebad Daachiret ALT-s", bandage);
+	format(str,sizeof(str),""COL_GREEN"%s\n"COL_GREY"Click Alt For Loot", bandage);
     Loot[lootCount][LootText] = CreateDynamic3DTextLabel(str,-1,bandx,bandy,bandz-0.7,8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,-1,-1,-1, 8.0);		
 }
