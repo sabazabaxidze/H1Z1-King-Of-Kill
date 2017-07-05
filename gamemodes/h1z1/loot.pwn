@@ -5,9 +5,16 @@
 /* LOOT OBJECT IDS */
 #define AK_OBJECT 355
 #define M4_OBJECT 356
-#define MEDKIT_OBJECT 1580
+#define MEDKIT_OBJECT 11738
 #define BANDAGE_OBJECT 11747
 #define SNIPER_OBJECT 358
+#define DEAGLE_OBJECT 348
+#define UZI_OBJECT 352
+#define BOMB_OBJECT 342
+#define GAS_OBJECT 1672
+#define BAT_OBJECT 336
+#define KNIFE_OBJECT 335
+#define KATANA_OBJECT 339
 enum lootVars
 {
     Float:xLoo,
@@ -1700,7 +1707,26 @@ function CreateLootInWorld(lootstyle,Float:pXX,Float:pYX,Float:pZX)
 		{
 			CreateSniper(pXX, pYX, pZX, ".308 Rifle");
 		}
-
+		case 7:
+		{
+			CreateUzi(pXX, pYX, pZX, "Mini Uzi");
+		}
+		case 8:
+		{
+			CreateBomb(pXX, pYX, pZX, "Grenade");
+		}
+		case 9:
+		{
+			CreateGas(pXX, pYX, pZX, "Gas Grenade");
+		}
+		case 10:
+		{
+			CreateBat(pXX, pYX, pZX, "Baseball Bat");
+		}
+		case 11:
+		{
+			CreateKnife(pXX, pYX, pZX, "COMBAT KNIFE");
+		}
 	}
 	return 1;
 }
@@ -1736,6 +1762,46 @@ CreateShotgun(Float:shotgunx,Float:shotguny,Float:shotgunz, shotgun[])
 	format(str,sizeof(str),""COL_GREEN"%s\n"COL_GREY"Click Alt For Loot", shotgun);
     Loot[lootCount][LootText] = CreateDynamic3DTextLabel(str,-1,shotgunx,shotguny,shotgunz-0.7,8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,-1,-1,-1, 8.0);	
 }
+CreateDeagle(Float:deaglex, Float:deagley, Float:deaglez, deagle[])
+{
+	new str[127];
+	Loot[lootCount][LootObj] = CreateDynamicObject(DEAGLE_OBJECT,deaglex,deagley,deaglez-0.9,0.0,0.0,0.0,-1,-1,-1,1000.0);
+	format(str,sizeof(str),""COL_GREEN"%s\n"COL_GREY"Click Alt For Loot", deagle);
+    Loot[lootCount][LootText] = CreateDynamic3DTextLabel(str,-1,deaglex,deagley,deaglez-0.7,8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,-1,-1,-1, 8.0);
+
+}
+CreateUzi(Float:uzix, Float:uziy, Float:uziz, uzi[])
+{
+	new str[127];
+	Loot[lootCount][LootObj] = CreateDynamicObject(UZI_OBJECT,uzix,uziy,uziz-0.9,0.0,0.0,0.0,-1,-1,-1,1000.0);
+	format(str,sizeof(str),""COL_GREEN"%s\n"COL_GREY"Click Alt For Loot", uzi);
+    Loot[lootCount][LootText] = CreateDynamic3DTextLabel(str,-1,uzix,uziy,uziz-0.7,8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,-1,-1,-1, 8.0);
+
+}
+CreateBat(Float:batx, Float:baty, Float:batz, bat[])
+{
+	new str[127];
+	Loot[lootCount][LootObj] = CreateDynamicObject(BAT_OBJECT,batx,baty,batz-0.9,0.0,0.0,0.0,-1,-1,-1,1000.0);
+	format(str,sizeof(str),""COL_GREEN"%s\n"COL_GREY"Click Alt For Loot", bat);
+    Loot[lootCount][LootText] = CreateDynamic3DTextLabel(str,-1,batx,baty,batz-0.7,8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,-1,-1,-1, 8.0);
+
+}
+CreateKnife(Float:knifex, Float:knifey, Float:knifez, knife[])
+{
+	new str[127];
+	Loot[lootCount][LootObj] = CreateDynamicObject(KNIFE_OBJECT,knifex,knifey,knifez-0.9,0.0,0.0,0.0,-1,-1,-1,1000.0);
+	format(str,sizeof(str),""COL_GREEN"%s\n"COL_GREY"Click Alt For Loot", knife);
+    Loot[lootCount][LootText] = CreateDynamic3DTextLabel(str,-1,knifex,knifey,knifez-0.7,8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,-1,-1,-1, 8.0);
+
+}
+CreateKatana(Float:katanax, Float:katanay, Float:katanaz, katana[])
+{
+	new str[127];
+	Loot[lootCount][LootObj] = CreateDynamicObject(KATANA_OBJECT,katanax,katanay,katanaz-0.9,0.0,0.0,0.0,-1,-1,-1,1000.0);
+	format(str,sizeof(str),""COL_GREEN"%s\n"COL_GREY"Click Alt For Loot", katana);
+    Loot[lootCount][LootText] = CreateDynamic3DTextLabel(str,-1,katanax,katanay,katanaz-0.7,8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,-1,-1,-1, 8.0);
+
+}
 /* MEDIC CREATE FUNCTIONS */
 CreateMedKit(Float:medx, Float:medy, Float:medz, medkit[])
 {
@@ -1750,5 +1816,23 @@ CreateBandage(Float:bandx, Float:bandy, Float:bandz, bandage[])
 	new str[127];
 	Loot[lootCount][LootObj] = CreateDynamicObject(BANDAGE_OBJECT,bandx,bandy,bandz-0.9,0.0,0.0,0.0,-1,-1,-1,1000.0);
 	format(str,sizeof(str),""COL_GREEN"%s\n"COL_GREY"Click Alt For Loot", bandage);
-    Loot[lootCount][LootText] = CreateDynamic3DTextLabel(str,-1,bandx,bandy,bandz-0.7,8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,-1,-1,-1, 8.0);		
+    Loot[lootCount][LootText] = CreateDynamic3DTextLabel(str,-1,bandx,bandy,bandz-0.7,8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,-1,-1,-1, 8.0);
+		
+}
+/* Bomb,Gas */
+CreateBomb(Float:bombx, Float:bomby, Float:bombz, bomb[])
+{
+	new str[127];
+	Loot[lootCount][LootObj] = CreateDynamicObject(BOMB_OBJECT,bombx,bomby,bombz-0.9,0.0,0.0,0.0,-1,-1,-1,1000.0);
+	format(str,sizeof(str),""COL_GREEN"%s\n"COL_GREY"Click Alt For Loot", bomb);
+    Loot[lootCount][LootText] = CreateDynamic3DTextLabel(str,-1,bombx,bomby,bombz-0.7,8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,-1,-1,-1, 8.0);
+		
+}
+CreateGas(Float:gasx, Float:gasy, Float:gasz, gas[])
+{
+	new str[127];
+	Loot[lootCount][LootObj] = CreateDynamicObject(GAS_OBJECT,gasx,gasy,gasz-0.9,0.0,0.0,0.0,-1,-1,-1,1000.0);
+	format(str,sizeof(str),""COL_GREEN"%s\n"COL_GREY"Click Alt For Loot", gas);
+    Loot[lootCount][LootText] = CreateDynamic3DTextLabel(str,-1,gasx,gasy,gasz-0.7,8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,-1,-1,-1, 8.0);
+		
 }
