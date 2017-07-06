@@ -1779,7 +1779,7 @@ CreateKatana(Float:katanax, Float:katanay, Float:katanaz, katana[])
 CreateShotgspa(Float:shotx, Float:shoty, Float:shotz, CombatShotgun[])
 {
 	new str[127];
-	Loot[lootCount][LootObj] = CreateDynamicObject(KATANA_OBJECT,shotx,shoty,shotz-0.9,0.0,0.0,0.0,-1,-1,-1,1000.0);
+	Loot[lootCount][LootObj] = CreateDynamicObject(SHOTGSPA_OBJECT,shotx,shoty,shotz-0.9,0.0,0.0,0.0,-1,-1,-1,1000.0);
 	format(str,sizeof(str),""COL_GREEN"%s\n"COL_GREY"Click Alt For Loot", CombatShotgun);
     Loot[lootCount][LootText] = CreateDynamic3DTextLabel(str,-1,shotx,shoty,shotz-0.7,8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,-1,-1,-1, 8.0);
 
