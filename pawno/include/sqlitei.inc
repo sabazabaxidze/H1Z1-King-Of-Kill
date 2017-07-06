@@ -128,7 +128,7 @@
 #endif
 
 #if !defined DB_MAX_STATEMENTS
-	#define DB_MAX_STATEMENTS  120
+	#define DB_MAX_STATEMENTS  16
 #endif
 
 #if !defined DB_MAX_STATEMENT_SIZE

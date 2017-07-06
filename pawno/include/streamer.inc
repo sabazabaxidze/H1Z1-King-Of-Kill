@@ -15,7 +15,7 @@
  */
 
 #include <a_samp>
-#include <YSI\y_hooks>
+
 // Definitions
 
 #define STREAMER_TYPE_OBJECT (0)
@@ -362,11 +362,3 @@ forward OnPlayerLeaveDynamicRaceCP(playerid, STREAMER_TAG_RACE_CP checkpointid);
 forward OnPlayerEnterDynamicArea(playerid, STREAMER_TAG_AREA areaid);
 forward OnPlayerLeaveDynamicArea(playerid, STREAMER_TAG_AREA areaid);
 forward Streamer_OnPluginError(error[]);
-
-hook OnPlayerConnect(playerid)
-{
-	SendClientMessage(playerid, -1, "GameMode-ze imushava ....");
-	return 1;
-}	
-
-

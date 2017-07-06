@@ -15,6 +15,9 @@
 #define BAT_OBJECT 336
 #define KNIFE_OBJECT 335
 #define KATANA_OBJECT 339
+#define SHOTGUN_OBJECT 349
+#define MOL_OBJECT 344
+#define SHOTGSPA_OBJECT 351
 enum lootVars
 {
     Float:xLoo,
@@ -1683,50 +1686,21 @@ function CreateLootInWorld(lootstyle,Float:pXX,Float:pYX,Float:pZX)
 	Loot[lootCount][LootZ] = pZX;
 	switch(lootstyle)
 	{
-		case 1: // AK 47
-		{
-			CreateAk47(pXX, pYX, pZX, "AK 47");
-		}
-		case 2:
-		{
-			CreateM4(pXX, pYX, pZX, "M4");
-		}
-		case 3:
-		{
-			CreateMedKit(pXX, pYX, pZX, "Med Kit");
-		}
-		case 4:
-		{
-			CreateBandage(pXX, pYX, pZX, "Bandage");
-		}
-		case 5:
-		{
-			CreateShotgun(pXX, pYX, pZX, "Shotgun");
-		}
-		case 6:
-		{
-			CreateSniper(pXX, pYX, pZX, ".308 Rifle");
-		}
-		case 7:
-		{
-			CreateUzi(pXX, pYX, pZX, "Mini Uzi");
-		}
-		case 8:
-		{
-			CreateBomb(pXX, pYX, pZX, "Grenade");
-		}
-		case 9:
-		{
-			CreateGas(pXX, pYX, pZX, "Gas Grenade");
-		}
-		case 10:
-		{
-			CreateBat(pXX, pYX, pZX, "Baseball Bat");
-		}
-		case 11:
-		{
-			CreateKnife(pXX, pYX, pZX, "COMBAT KNIFE");
-		}
+		case 1: CreateAk47(pXX, pYX, pZX, "AK 47");
+		case 2: CreateM4(pXX, pYX, pZX, "M4");
+		case 3: CreateMedKit(pXX, pYX, pZX, "Med Kit");
+		case 4: CreateBandage(pXX, pYX, pZX, "Bandage");
+		case 5: CreateShotgun(pXX, pYX, pZX, "Shotgun");
+		case 6: CreateSniper(pXX, pYX, pZX, ".308 Rifle");
+		case 7: CreateUzi(pXX, pYX, pZX, "Mini Uzi");
+		case 8: CreateBomb(pXX, pYX, pZX, "Grenade");
+		case 9: CreateGas(pXX, pYX, pZX, "Gas Grenade");
+		case 10: CreateBat(pXX, pYX, pZX, "Baseball Bat");
+		case 11: CreateKnife(pXX, pYX, pZX, "COMBAT KNIFE");
+		case 12: CreateDeagle(pXX, pYX, pZX, "Desert Eagle");
+		case 13: CreateKatana(pXX, pYX, pZX, "Katana");
+		case 14: CreateMolotov(pXX, pYX, pZX, "Molotov Cocktail");
+		case 15: CreateShotgspa(pXX, pYX, pZX, "Combat Shotgun");
 	}
 	return 1;
 }
@@ -1802,6 +1776,14 @@ CreateKatana(Float:katanax, Float:katanay, Float:katanaz, katana[])
     Loot[lootCount][LootText] = CreateDynamic3DTextLabel(str,-1,katanax,katanay,katanaz-0.7,8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,-1,-1,-1, 8.0);
 
 }
+CreateShotgspa(Float:shotx, Float:shoty, Float:shotz, CombatShotgun[])
+{
+	new str[127];
+	Loot[lootCount][LootObj] = CreateDynamicObject(KATANA_OBJECT,shotx,shoty,shotz-0.9,0.0,0.0,0.0,-1,-1,-1,1000.0);
+	format(str,sizeof(str),""COL_GREEN"%s\n"COL_GREY"Click Alt For Loot", CombatShotgun);
+    Loot[lootCount][LootText] = CreateDynamic3DTextLabel(str,-1,shotx,shoty,shotz-0.7,8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,-1,-1,-1, 8.0);
+
+}
 /* MEDIC CREATE FUNCTIONS */
 CreateMedKit(Float:medx, Float:medy, Float:medz, medkit[])
 {
@@ -1819,7 +1801,7 @@ CreateBandage(Float:bandx, Float:bandy, Float:bandz, bandage[])
     Loot[lootCount][LootText] = CreateDynamic3DTextLabel(str,-1,bandx,bandy,bandz-0.7,8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,-1,-1,-1, 8.0);
 		
 }
-/* Bomb,Gas */
+/* EXPLOSIVES */
 CreateBomb(Float:bombx, Float:bomby, Float:bombz, bomb[])
 {
 	new str[127];
@@ -1834,5 +1816,13 @@ CreateGas(Float:gasx, Float:gasy, Float:gasz, gas[])
 	Loot[lootCount][LootObj] = CreateDynamicObject(GAS_OBJECT,gasx,gasy,gasz-0.9,0.0,0.0,0.0,-1,-1,-1,1000.0);
 	format(str,sizeof(str),""COL_GREEN"%s\n"COL_GREY"Click Alt For Loot", gas);
     Loot[lootCount][LootText] = CreateDynamic3DTextLabel(str,-1,gasx,gasy,gasz-0.7,8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,-1,-1,-1, 8.0);
+		
+}
+CreateMolotov(Float:molx, Float:moly, Float:molz, Molotov[])
+{
+	new str[127];
+	Loot[lootCount][LootObj] = CreateDynamicObject(MOL_OBJECT,molx,moly,molz-0.9,0.0,0.0,0.0,-1,-1,-1,1000.0);
+	format(str,sizeof(str),""COL_GREEN"%s\n"COL_GREY"Click Alt For Loot", Molotov);
+    Loot[lootCount][LootText] = CreateDynamic3DTextLabel(str,-1,molx,moly,molz-0.7,8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,-1,-1,-1, 8.0);
 		
 }

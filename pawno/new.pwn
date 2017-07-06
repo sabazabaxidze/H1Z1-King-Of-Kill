@@ -4,37 +4,24 @@
 
 #include <a_samp>
 
-#if defined FILTERSCRIPT
-
-public OnFilterScriptInit()
-{
-	print("\n--------------------------------------");
-	print(" Blank Filterscript by your name here");
-	print("--------------------------------------\n");
-	return 1;
-}
-
-public OnFilterScriptExit()
-{
-	return 1;
-}
-
-#else
-
 main()
 {
 	print("\n----------------------------------");
 	print(" Blank Gamemode by your name here");
 	print("----------------------------------\n");
 }
-
-#endif
-
+enum pinfo
+{
+	pRank
+}
+new PlayerInfo[MAX_PLAYERS][pinfo];
 public OnGameModeInit()
 {
 	// Don't use these lines if it's a filterscript
-	SetGameModeText("Blank Script");
-	AddPlayerClass(0, 1958.3783, 1343.1572, 15.3746, 269.1425, 0, 0, 0, 0, 0, 0);
+	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);
+	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+//	Objects();	
 	return 1;
 }
 
@@ -90,12 +77,39 @@ public OnPlayerCommandText(playerid, cmdtext[])
 {
 	if (strcmp("/mycommand", cmdtext, true, 10) == 0)
 	{
-		// Do something here
+		new random = random(5);
+		new string[3];
+		format(string, sizeof(string), "%d",random);	
+		SendClientMessage(playerid, -1, string);	
 		return 1;
+	}
+	if(strcmp("/test", cmdtext, true, 10) == 0)
+	{
+		//if(PlayerInfo[playerid][pRank] == 0) return SendClientMessage(playerid, -1, "Sheni rankia 1");
+		new string[110], ranki[25];
+		switch(PlayerInfo[playerid][pRank])		
+		{
+			case 1:
+			{
+				ranki = "Ranki1";
+			}
+			case 2:
+			{
+				ranki = "Ranki2";
+			}
+		}
+		format(string, sizeof(string), "Sheni Rankia %s",ranki);
+		SendClientMessage(playerid, -1, string);
+		return 1;		
 	}
 	return 0;
 }
-
+forward Timer();
+public Timer()
+{
+	DestroyObject(SownObject);
+	CreateObject(SnowObject,X,Y,Z,RotX,RotY,RotZ);
+}
 public OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)
 {
 	return 1;
@@ -229,4 +243,62 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 public OnPlayerClickPlayer(playerid, clickedplayerid, source)
 {
 	return 1;
+}
+stock Objects()
+{
+	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);	CreateObject(ID, X,Y,Z,RotX,RotY,RotZ);
+	CreateDynamicObjectEx(ID,X,Y,Z,RotX,RotY,RotZ,7777.7777);
 }

@@ -1,3 +1,20 @@
+/*==============================================================================
+    ArthourP's And sabazabaxidze's H1Z1 Gamemode
+        Copyright (C) 2017 Giorgi "Crayder" Medzvelia
+        This program is free software: you can redistribute it and/or modify it
+        under the terms of the GNU General Public License as published by the
+        Free Software Foundation, either version 3 of the License, or (at your
+        option) any later version.
+        This program is distributed in the hope that it will be useful, but
+        WITHOUT ANY WARRANTY; without even the implied warranty of
+        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+        See the GNU General Public License for more details.
+        You should have received a copy of the GNU General Public License along
+        with this program.  If not, see <http://www.gnu.org/licenses/>.
+==============================================================================*/
+#pragma dynamic 120000
+
+
 #include <a_samp>
 #include <zcmd>
 #include <streamer>
@@ -31,10 +48,24 @@
 /* MACROS */
 #define function%0(%1) forward%0(%1);public%0(%1)
 
+/* MATH THINGS */
+stock IsNaN(Float:number)
+{
+    return !(number <= 0 || number > 0);
+}
+
+stock Float:frandom(Float:max, Float:min = 0.0, dp = 4)
+{
+    new
+        Float:mul = floatpower(10.0, dp),
+        imin = floatround(min * mul),
+        imax = floatround(max * mul);
+    return float(random(imax - imin) + imin) / mul;
+}
 
 /* GAMEMODE FILES */
 #include "h1z1/loot.pwn"
-
+#include "h1z1/bleed.pwn"
 
 public OnGameModeInit()
 {
@@ -220,3 +251,4 @@ public OnPlayerClickPlayer(playerid, clickedplayerid, source)
 {
 	return 1;
 }
+
